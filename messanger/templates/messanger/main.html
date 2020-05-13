@@ -1,0 +1,79 @@
+{% extends 'messanger/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Главная
+{% endblock title %}
+    
+
+{% block content %}
+    
+    <main class='main-content'>
+        <!-- Список чатов -->
+        <div class="chat-list">
+            {% for chat, not_readed_cnt in chats.items %}
+                <div class="chat">
+                    <a href="?name={{ chat }}">
+                        <h2 class='chat-title'>{{ chat.name }}<img src="{% static 'messanger/img/delete.png' %}" width='15'></h2>
+                        <p class='chat-preview'>{{ chat.messages.latest.author }}: {{ chat.messages.latest.text|truncatewords:'4' }}</p>
+                        <p class='last-msg-time'>{{ chat.messages.latest.created|date:"j E Y г., H:i" }}</p>
+                        
+                        {% if not_readed_cnt != 0 %}
+                            <span class='not-readed-count'>{{ not_readed_cnt }}</span>
+                        {% endif %}
+                            
+                    </a>
+                </div>
+
+            {% endfor %}
+             
+        </div>
+        <!-- Кнопка добавления нового чата -->
+        <button class="add-new-chat">
+            +
+        </button>
+        <!-- Окно создания чата -->
+        <div class="new-chat" hidden>
+            <input type="text" id='chat-name' placeholder="Название чата" required>
+            <img src="{% static 'messanger/img/checkmark.png' %}" width="30">
+        </div>
+        <h1 class='hello-user'>Добро пожаловать, {{ user.username }}!</h1>
+        <!-- Окно чата -->
+        <div class="chat-box">
+            {{ user.username|json_script:'current_user' }} 
+            <header class='box-chat-title'>
+                <h1 class='name-of-chat'></h1>
+                <div class="participants">
+                    <h3></h3>
+                </div>
+            </header>
+            <section class='msg-content'>
+                <div class="msg-area">     
+                    <!-- Место для сообщений -->
+                </div>
+                <div class="participant-list">
+                    <!-- Место для списка участников -->
+                </div>
+            </section>
+            <footer class='send-msg'>
+                <textarea cols="160" rows="3" class='send-msg-area' required placeholder="Введите сообщение..."></textarea>
+                <button class='send-msg-btn'>
+                    <img src="{% static 'messanger/img/send-icon.png' %}" width="30px">
+                </button>
+                <div class="add-new-user-btn">
+                    <button class='add-new-user'>
+                        +
+                    </button>
+                    <div class="new-user" hidden>
+                        <input type="text" placeholder="Логин пользователя" id='new-user'>
+                        <img src="{% static 'messanger/img/checkmark.png' %}" width="30">
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+    </main>
+    <script src="{% static 'messanger/js/main.js' %}"></script>
+    <script src="{% static 'messanger/js/ws.js' %}"></script>
+{% endblock content %}
+    

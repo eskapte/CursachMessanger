@@ -1,0 +1,37 @@
+{% extends 'messanger/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Профиль
+{% endblock title %}
+
+
+
+{% block content %}
+    
+    <main>
+        <div class="profile">
+
+            <span>Логин:</span>
+            <h2>{{ user.username }}</h2>
+
+            <span>Адрес эл. почты:</span>
+            <h2>{{ user.email }}</h2>
+
+            <span>Имя:</span>
+            <h2>{{ user.first_name }}</h2>
+
+            <span>Фамилия:</span>
+            <h2>{{ user.last_name }}</h2>
+
+            <span>Дата регистрации:</span>
+            <h2>{{ user.date_joined }}</h2>
+
+            <a href="{% url 'edit' username=user.username%}">Редактировать</a>
+        </div>
+    </main>
+
+
+    <script src="{% static 'messanger/js/profile.js' %}"></script>
+{% endblock content %}
+        

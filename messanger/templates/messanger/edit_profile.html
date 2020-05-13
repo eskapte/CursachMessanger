@@ -1,0 +1,22 @@
+{% extends 'messanger/layout.html' %}
+
+
+{% block title %}
+    Редактирование
+{% endblock title %}
+
+
+{% block content %}
+    <main>
+        <div class="reg-form">
+            <form method="post" class="reg-form">
+                {% csrf_token %}
+                {% for field in form.visible_fields %}
+                    <p>{{ field.label_tag }}<br>{{ field }}</p>
+                {% endfor %}
+                <input type="submit" value="Редактировать" class="reg-button">
+                </form>
+        </div> 
+    </main>
+    
+{% endblock content %}

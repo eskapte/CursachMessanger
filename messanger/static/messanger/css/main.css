@@ -1,0 +1,460 @@
+/* html {
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
+} */
+
+body {
+    font-family: "Calibri Light", serif;
+    width: 70%;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.main-header {
+    width: 100%;
+    height: 100px;
+    background-color: orangered;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 5px 0 black;
+}
+
+.main-header .main-logo {
+    margin: 0 3%;
+    min-width: 40%;
+}
+
+.main-logo a {
+    color: white;
+    text-decoration: none;
+}
+
+.login-content {
+    margin-top: 10%;
+    display: flex;
+}
+
+.auth-side {
+    height: 200px;
+    margin-top: 3%;
+    padding-right: 4%;
+}
+
+.hello-side {
+    padding-left: 4%;
+    margin-top: 2%;
+    border-left: 3px solid orangered;
+    box-shadow: -4px 0 5px 0 orange;
+}
+
+.hello-side p {
+    font-size: 120%;
+    line-height: 120%;
+}
+
+.login-form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center; 
+    width: 25%;
+    height: 150px;
+    margin: 5% auto;
+}
+
+.login-form input[type='text'], .login-form input[type='password'] {
+    font-size: 150%;
+    border: 1px solid orangered;
+    outline-color: orange;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.login-form input[type='text']:hover, .login-form input[type='password']:hover, .login-form input[type='submit']:hover {
+    border-color: orange;
+}
+
+.login-form input[type='submit'] {
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+    outline-color: orange;
+    font-size: 140%;
+    padding: 3% 10%;
+}
+
+.login-form span {
+    color: black;
+    font-size: 110%;
+}
+
+.auth-side a{
+    font-size: 120%;
+    color: orange;
+    text-decoration: none;
+}
+
+.auth-side a:focus, .auth-side a:hover {
+    color: orange;
+}
+
+.chat-list {
+    margin-top: 1%;
+    border-right: 3px solid orangered;
+    /* border-top: 3px solid orangered; */
+    box-shadow: +9px 0 5px -5px orange;
+    width: 25%;
+    height: 700px;
+    overflow-y: auto;
+}
+
+/* Убирает уродливый скроллбар  */
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+.chat a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.chat-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.chat a:hover {
+    color: orange;
+}
+
+
+.chat {
+    border-top: 1px solid orangered;
+    box-shadow: -1px -3px 5px 1px orangered;
+    margin-left: 3px;
+    padding: 5px 0 10px 5px;
+    height: 100px;
+
+}
+
+
+.chat-box {
+    height: 700px;
+    box-shadow: inset -5px -5px 5px 0px orange;
+    width: 75%;
+    margin-top: 1%;
+    /* overflow-y: scroll; */
+    display: none;
+    border-bottom: 3px solid orangered;
+    
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-chat-title {
+    display: flex;
+    width: 100% ;
+    align-items: center;
+    justify-content: space-between;
+    height: 6%;
+    background-color: orangered;
+}
+
+.box-chat-title h1 {
+    margin-left: 3%;
+}
+
+.participants h3 {
+    margin: 0;
+    float: right;
+}
+
+.participants {
+    margin-right: 2%;
+}
+
+.msg-area {
+    width: 100%;
+    height: 99%;
+    overflow-y: scroll;
+    box-shadow: 0px -3px 5px 0px orange;
+    margin-bottom: 0;
+}
+
+.send-msg {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin-top: 0;
+    border-top: 1px solid orangered;
+    /* box-shadow: inset 0px -5px 5px 0px orange; */
+}
+
+.send-msg-area {
+    resize: none;
+    font-size: 115%;
+    padding-left: 15px;
+    padding-right: 15px;
+    outline: none;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    width: 95%;
+    height: 90%;
+}
+
+.send-msg-btn {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.msg-content {
+    display: flex;
+    justify-content: space-between;
+    height: 590px;
+}
+
+.participant-list {
+    width: 20%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+    align-items: flex-start;
+    border-left: 3px solid orangered;
+    overflow-y: scroll;
+    /* box-shadow: inset -2px -2px 5px 3px orange; */
+}
+
+.participant-list * {
+    margin-top: 10px;
+}
+
+.message {
+    margin-bottom: 2%;
+    margin-right: 2%;
+}
+
+.active {
+    background-color: orangered;
+    margin-left: 10px;
+}
+
+.active img {
+    background-color: white;
+    border-radius: 50%;
+}
+
+.active * {
+    color: white;
+}
+
+.logout {
+    margin-left: 40%;
+    margin-right: 10%;
+    text-decoration: none;
+    background-color: orangered;
+    color: white;
+    font-size: 120%;
+    padding: 5px 10px;
+}
+
+.logout:hover {
+    background-color: white;
+    color: orangered
+}
+
+.message {
+    margin-top: 3%;
+    margin-left: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.message > span:first-child {
+    width: 70%;
+}
+
+.not-readed-count {
+    padding: 1.5% 2%;
+    background-color: orange;
+    position: relative;
+    bottom: 70px;
+    left: 90%;
+    margin-right: 5%;
+    border-radius: 20px;
+    color: black;
+}
+
+.add-new-chat {
+    float: left;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 200%;
+    font-weight: bold;
+    background-color: orangered;
+    border: 2px solid orangered;
+    outline: none;
+    border: none;
+    color: white;
+    margin: 3% 40%;
+    position: fixed;
+    right: 35%;
+    top: 85%;
+}
+
+.add-new-chat:hover {
+    background-color: white;
+    color: orangered;
+    border: 2px solid orangered;
+}
+
+.new-chat {
+    float: left;
+    position: fixed;
+    right: 67%;
+    top: 91%;
+}
+
+#chat-name {
+    font-size: 130%;
+    border: none;
+    outline-color: orangered;
+    padding: 10px 35px 10px 10px
+}
+
+.new-chat img {
+    position: relative;
+    top: 5px;
+    right: 40px;
+}
+
+.hello-user {
+    align-self: center;
+    margin-right: 20%;
+}
+
+nav {
+    display: flex;
+    height: 50px;   
+    line-height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    width: 33%;
+    text-align: center;
+    height: 100%;
+}
+
+.add-new-user-btn {
+    width: 23.8%;
+    background-color: orangered;
+    height: 70px;
+}
+
+.add-new-user {
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    font-size: 200%;
+    color: white;
+    border: 2px solid white;
+    margin: 5% 37%;
+    padding: 5px 15px;
+    background-color: orangered;
+}
+
+.add-new-user:hover {
+    background-color: white;
+    border: 2px solid white;
+    color: orangered;
+}
+
+.new-user {
+    margin: 10% 1% auto auto;
+}
+
+#new-user {
+    float: right;
+    width: 74%;
+    font-size: 90%;
+    border: none;
+    outline-color: orangered;
+    padding: 10px 35px 10px 10px
+}
+
+.new-user img {
+    position: relative;
+    bottom: 35px;
+    left: 150px;
+}
+
+.chat-title img {
+    margin-right: 10px;
+    padding: 3px 5px;
+    float: right;
+    height: 20px;
+}
+
+.active-link, nav a:hover {
+    background-color: orangered;
+    box-shadow: -1px 1px 5px 0px black;
+    color: white;
+}
+
+.profile h2 {
+    margin: 0;
+    margin-bottom: 1%;
+}
+
+.profile {
+    margin: 3% auto;
+    
+}
+
+.profile a {
+    text-decoration: none;
+    color: orange;
+    font-size: 120%;
+}
+
+.reg-form {
+    margin: 5% auto;
+}
+
+.reg-form input[type='text'], .reg-form input[type='password'], .reg-form input[type='email'] {
+    font-size: 150%;
+    border: 1px solid orangered;
+    outline-color: orange;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.reg-form input[type='submit'] {
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+    outline-color: orange;
+    font-size: 140%;
+    padding: 1% 4%;
+}
+
+.reg-form a {
+    text-decoration: none;
+    color: orange;
+    font-size: 120%;
+}

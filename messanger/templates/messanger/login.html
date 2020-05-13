@@ -1,0 +1,47 @@
+{% extends 'messanger/layout.html' %}
+
+
+{% block title %}
+    Вход
+{% endblock title %}
+
+
+{% block content %}
+    <main class='login-content'>
+        
+        {% if user.is_authenticated %}
+            
+        {% else %}
+            <div class="auth-side">
+                <form class='login-form' method="POST">
+                    {% csrf_token %}
+                    <label for="login">
+                        <span>Логин:<br>{{ form.username }}</span>
+                    </label>
+                    <label for="password">
+                        <span>Пароль:<br>{{ form.password }}</span>
+                    </label><br>
+                    <input type="submit" value="Вход">
+                </form>
+                <a href="{% url 'register' %}">Регистрация</a>
+            </div>
+        {% endif %}
+            
+        
+        <div class="hello-side">
+            <h1>Добро пожаловать на Cur$@ch Me$$@nger</h1>
+            <p><b>Cur$@ch Me$$@nger</b> - курсовой проект студента группы "ИСП-317" колледжа "Царицыно" Соболя Сергея.<br><br>
+            Этот мессенджер предназначен для того, чтобы сделать общение между студентами и преподавателями проще и удобней.<br>
+            Преподаватели могут скидывать домашнее задание, информировать об успеваемости, проводить консультации.<br>
+            Студенты же могут получить всю связанную с учебой информацию, задать вопрос преподавателю и т.д.<br>
+            Также это будет удобно тем, кто занимается организационной деятельностью. В мессенджере ведется лента активных новостей,
+            что позволяет уведомлять всех студентов о событиях в учебном учреждении.</p>
+        </div>
+    </main>
+    <script>
+        let helloSide = $('.hello-side');
+        
+
+    </script>
+{% endblock content %}
+    

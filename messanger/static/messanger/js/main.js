@@ -134,7 +134,7 @@ $('.add-new-chat').on('click', function (evt) {
                             $(
                                 `<div class='chat'>` +
                                 `<a href='?name=${inputName}'>` +
-                                `<h2 class='chat-title'>${inputName}<img src="/static/messanger/img/delete.png" width='50'></h2>` +
+                                `<h2 class='chat-title'>${inputName}<img src="/static/messanger/img/delete.png" width='15'></h2>` +
                                 `<p class='chat-preview'>:</p>` +
                                 `<p class='last-msg-time'></p>` +
                                 `</a>` + `</div>`
@@ -196,10 +196,11 @@ $('.add-new-user').on('click', function (evt) {
                     if (resp['error']) {
                         alert('Пользователь не найден');
                     } else {
-                        $('.participant-list').append(`<b>${response}</b>`);
-                        let partCnt = $('.participants').text();
-                        partCnt.split(' ')[1] += 1;
-                        $('.participants').text(partCnt.join(' '));
+                        $('.participant-list').append(`<b>${resp.username}</b>`);
+                        let partCnt = $('.participants>h3').text();
+                        let countPart = +partCnt.split(' ')[1];
+                        countPart += 1;
+                        $('.participants>h3').text(partCnt.split(' ')[0] + ` ${countPart}`);
                     }
                     $('#new-user').val('');
                     

@@ -30,11 +30,19 @@ window.onload = function(evt) {
                 // Действия при получении сообщений
                 let msg = JSON.parse(data['data']);
                 if (msg['chat'] == $('.name-of-chat').text()) {
+
+                    if($('.no-message')) {
+                        $('.no-message').remove();
+                    }
+
                     $('.msg-area').append($(`<div class='message'>` +
                                             `<span><b>${msg['author']}</b>` +
                                             `<p>${msg['text'].replace("\n", "<br>")}</p></span>` +
                                             `<span style='float: right;'>${msg['created']}</span>` +
                                             `</div>`));
+                    $('.msg-area').scrollTop( function() {
+                        return this.scrollHeight;
+                    } );
                     
     
                     if (msg['author'] == JSON.parse($('#current_user').text())) {
@@ -58,7 +66,7 @@ window.onload = function(evt) {
 
                 $('.chat>a>h2').each(function (i) {
                     if (this.textContent == msg['chat']) {
-                        this.nextElementSibling.textContent = msg['text'].split(' ').length0 > 4 ? `${msg['author']}: ${msg['text'].split(' ').slice(0, 4)}...` : `${msg['author']}: ${msg['text']}`;
+                        this.nextElementSibling.textContent = msg['text'].split(' ').length > 4 ? `${msg['author']}: ${msg['text'].split(' ').slice(0, 4).join(' ')}...` : `${msg['author']}: ${msg['text']}`;
                         this.nextElementSibling.nextElementSibling.textContent = formatDate();
                     }
                 });

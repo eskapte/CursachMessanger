@@ -8,6 +8,8 @@ body {
     width: 70%;
     margin: 0 auto;
     background-color: white;
+    font-size: 1.5vmin;
+    
 }
 
 .main-header {
@@ -106,6 +108,8 @@ body {
     width: 25%;
     height: 700px;
     overflow-y: auto;
+    font-size: 1.5vmin;
+    min-width: font;
 }
 
 /* Убирает уродливый скроллбар  */
@@ -188,7 +192,7 @@ body {
 
 .send-msg {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 10%;
@@ -213,7 +217,7 @@ body {
     background: none;
     border: none;
     outline: none;
-    padding: 5px;
+    /* padding: 5px; */
 }
 
 .msg-content {
@@ -224,7 +228,7 @@ body {
 
 .participant-list {
     width: 20%;
-    height: 600px;
+    height: 590px;
     display: flex;
     flex-direction: column;
     padding-left: 2%;
@@ -285,12 +289,12 @@ body {
 }
 
 .not-readed-count {
-    padding: 1.5% 2%;
+    padding: 1.5% 2.5%;
     background-color: orange;
     position: relative;
-    bottom: 70px;
-    left: 90%;
-    margin-right: 5%;
+    bottom: 60px;
+    left: 88%;
+    /* margin-right: 7%; */
     border-radius: 20px;
     color: black;
 }
@@ -342,6 +346,7 @@ body {
 .hello-user {
     align-self: center;
     margin-right: 20%;
+    font-size: 2vw;
 }
 
 nav {
@@ -362,8 +367,12 @@ nav a {
 
 .add-new-user-btn {
     width: 23.8%;
+    min-width: 18.5%;
     background-color: orangered;
     height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .add-new-user {
@@ -373,7 +382,8 @@ nav a {
     font-size: 200%;
     color: white;
     border: 2px solid white;
-    margin: 5% 37%;
+    height: 50px;
+    /* margin: 5% 37%; */
     padding: 5px 15px;
     background-color: orangered;
 }
@@ -457,4 +467,8 @@ nav a {
     text-decoration: none;
     color: orange;
     font-size: 120%;
+}
+
+.chat-preview {
+    width: 12vw;
 }

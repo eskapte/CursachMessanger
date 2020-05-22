@@ -92,7 +92,7 @@ class Index(LoginRequiredMixin, TemplateView):
                         user = User.objects.get(username=username)
                         chat = Chat.objects.get(name=chat_name)
                         chat.users.add(user)
-                        return HttpResponse(username)
+                        return HttpResponse(json.dumps({'username': username}))
                     except:
                         return HttpResponse(json.dumps({'error': "doesn't exist the user!"}))
                 # Создание нового чата
@@ -108,6 +108,7 @@ class Index(LoginRequiredMixin, TemplateView):
                         new_chat = Chat.objects.create(name = chat_name)
                         new_chat.save()
                         new_chat.users.add(self.request.user)
+                        return HttpResponse(json.dumps({'status': 'success'}))
                     # Если имя чата не валидно
                     except:
                         return HttpResponse(json.dumps({'error': 'invalid chat name'}))
@@ -117,6 +118,9 @@ class Index(LoginRequiredMixin, TemplateView):
                     user = self.request.user
                     chat = Chat.objects.get(name=chat_name)
                     chat.users.remove(user)
+                    # Если чат пустой, то удаляем его вовсе
+                    if len(chat.users.all()) == 0:
+                        chat.delete()
 
                     # Отключение от комнаты
                     new_chat_name = chat_name.replace(' ', '_._')
